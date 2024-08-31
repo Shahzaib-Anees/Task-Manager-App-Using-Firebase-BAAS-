@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+:root{
+    --font :  "New Amsterdam", sans-serif;
+    --Roboto-font : "Roboto", sans-serif;
+}
+
+.navbar{
+    background-color: #1F2937;
+    color : #fff;
+}
+
+.logo{
+    font-family: var(--font);
+    letter-spacing: 1px;
+}
+
+.btn{
+    padding: 5px 15px;
+    border-color: red;
+    border: 1px solid #fff;
+    border-radius: 10px;
+    font-family: var(--Roboto-font);
+    letter-spacing: 2px;
+    word-spacing: 2px;
+    font-weight: 800;
+    font-size: 18px;
+}
+
+
+@media(min-width : 240px) and (max-width : 640px){
+    .navbar{
+        justify-content: center;
+    } 
+    .logo{
+        font-size: 24px;
+    }
+}
