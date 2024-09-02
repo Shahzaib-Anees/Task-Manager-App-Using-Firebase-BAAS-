@@ -1,24 +1,51 @@
-import { useRef } from "react";
+import { useRef} from "react";
 import "./signin.css";
+import { Link } from "react-router-dom";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../../FirebaseConfig/firebase.js";
 function SignIn() {
   const userEmail = useRef();
   const userPassword = useRef();
 
-  const getSignInCredentails = (event) => {
-    event.preventDefault();
-     console.log(userEmail.current.value)
-     console.log(userPassword.current.value)
+  // Sign In User Function
+  const signInUser = async (auth, email, password) => {
+    try {
+      document.getElementById("loader").style.display = "flex";
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+
+      const user = userCredential.user;
+      localStorage.setItem("currentUser", `${user.uid}`);
+      console.log(user.uid, "==> Signed In Successfully");
+    } catch (error) {
+      console.log(error);
+    }finally{
+      document.getElementById("loader").style.display = "none";
+    }
   };
+
+  const getSignInCredentails = async (event) => {
+    event.preventDefault();
+    await signInUser(auth, userEmail.current.value, userPassword.current.value);
+    userEmail.current.value = "";
+    userPassword.current.value = "";
+  };
+
   return (
     <>
-      <div className="mt-10 sm:mx-auto sm:w-full lg:w-[40rem] md:w-[32rem] box-content">
+      <div className="mt-20 sm:mx-auto sm:w-full lg:w-[40rem] md:w-[32rem] box-content">
         <form
           id="form"
           className="space-y-6 p-6 py-8 rounded-md"
           method="POST"
           onSubmit={getSignInCredentails}
-          >
-          <h1 className="text-3xl text-[#3c3c3c] text-center font-bold">Sign In</h1>
+        >
+          <h1 className="text-3xl text-[#3c3c3c] text-center font-bold">
+            Sign In
+          </h1>
           <div>
             <label className="block text-sm font-medium leading-6 text-gray-900">
               Email address
@@ -51,13 +78,15 @@ function SignIn() {
                 px-2"
               />
               <div className="flex justify-between items-center py-1 my-0">
-                <p className="text-[12px]">
+                <p className="mt-1 text-[12px]">
                   Don&#769;t have an account ?
-                  <span id="sign-up-path"
+                  <Link
+                    to="/SignUpAuth"
+                    id="sign-up-path"
                     className="font-bold text-[13px] p-1 bg-[#f2f2f2]"
                   >
                     Sign Up
-                  </span>
+                  </Link>
                 </p>
                 <div className="text-sm text-end">
                   <a

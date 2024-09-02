@@ -1,5 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
+import { getFirestore } from "firebase/firestore";
+import { getAuth } from "firebase/auth";
 const firebaseConfig = {
   apiKey: "AIzaSyDxkQUaot3SHRIJTz4_hrgTo_wgB0oaaqE",
   authDomain: "todo-backend-bcd23.firebaseapp.com",
@@ -12,6 +14,8 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
 const analytics = getAnalytics(app);
+const auth = getAuth(app);
 
-export{app , analytics};
+export {analytics, db , auth };

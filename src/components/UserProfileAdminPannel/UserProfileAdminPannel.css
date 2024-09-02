@@ -1,0 +1,19 @@
+#profile-image-main-container {
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+#profile-image-null-container {
+    border: 2px solid rgb(144, 144, 144);
+    border-radius: 50%;
+}
+
+.profile-image {
+    border-radius: 50%;
+}
+
+.image-mouse-enter-style{
+    filter: grayscale(0.3);
+    border: 3px solid #101010;
+}
