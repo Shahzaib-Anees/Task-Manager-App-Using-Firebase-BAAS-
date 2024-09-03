@@ -23,12 +23,12 @@ const UserProfileAdminPannel = React.memo(({ src, title }) => {
       <article className="profile-info-pannel flex flex-col items-center px-2 py-4 bg-[#ededed] w-[230px] h-[100%]">
         <div
           id="profile-image-main-container"
-          className="w-[79px] p-[3px] flex items-center justify-center relative"
+          className="w-[93px] h-[93px] p-[3px] flex items-center justify-center relative"
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >
-          <div id="profile-image-null-container" className="w-[100%]">
-            <img src={src} alt="Profile" className="profile-image w-[100%]" />
+          <div id="profile-image-null-container" className="w-[90px] h-[90px]">
+            <img src={src} alt="Profile" className="profile-image w-[100%] h-[100%]" />
           </div>
           {mouseEnterProfileImage && (
             <div

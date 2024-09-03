@@ -14,7 +14,6 @@ function UserProfile() {
     const docSnap = await getDoc(docRef);
     if (docSnap.exists()) {
       setUserData(docSnap.data());
-      console.log(userData);
     } else {
       console.log("No such document!");
     }
