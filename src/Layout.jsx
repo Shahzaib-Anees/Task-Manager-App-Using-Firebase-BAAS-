@@ -2,7 +2,7 @@
 import Loader from "./components/Loader/Loader";
 import Navbar from "./components/Navbar/Navbar";
 import { Outlet } from "react-router-dom";
-function App() {
+function Layout() {
   return (
     <>
       <Navbar />
@@ -12,4 +12,4 @@ function App() {
   );
 }
 
-export default App;
+export default Layout;

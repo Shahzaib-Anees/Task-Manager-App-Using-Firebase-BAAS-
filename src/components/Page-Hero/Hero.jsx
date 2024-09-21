@@ -1,7 +1,7 @@
 // import SignIn from "../SignInAuth/SignIn.jsx";
 import { Link } from "react-router-dom";
 import "./hero.css";
-import UserProfile from "../UserProfileManager/UserProfile";
+import UserProfile from "../CurrentUserProfile/UserProfile/UserProfile";
 function Hero() {
   {
     if (localStorage.getItem("currentUser") === null) {

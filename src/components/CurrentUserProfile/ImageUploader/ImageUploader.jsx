@@ -1,7 +1,7 @@
 import { useRef} from "react";
 import "./ImageUploader.css";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
-import { db, storage } from "../../../FirebaseConfig/firebase";
+import { db, storage } from "../../../../FirebaseConfig/firebase.js";
 import { doc, updateDoc } from "firebase/firestore";
 function ImageUploader() {
   const currentUser = localStorage.getItem("currentUser");

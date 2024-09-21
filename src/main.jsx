@@ -1,35 +1,44 @@
 import { createRoot } from "react-dom/client";
-// import App from "./App.jsx";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import App from "./App";
+import Layout from "./Layout";
 import Hero from "./components/Page-Hero/Hero";
 import SignIn from "./components/SignInAuth/SignIn";
 import SignUp from "./components/SignUpAuth/SignUp";
-import UserProfile from "./components/UserProfileManager/UserProfile";
+import UserProfile from "./components/CurrentUserProfile/UserProfile/UserProfile";
+import ProfileAdminTaskManager from "./components/CurrentUserProfile/ProfileAdminTaskManager/ProfileAdminTaskManager";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: <Layout />,
     children: [
       {
         path: "",
         element: <Hero />,
       },
       {
-        path : "/SignInAuth",
-        element : <SignIn/>
+        path: "/SignInAuth",
+        element: <SignIn />,
       },
       {
-        path : "/SignUpAuth",
-        element : <SignUp/>
+        path: "/SignUpAuth",
+        element: <SignUp />,
       },
       {
-        path : "/UserProfileManager",
-        element : <UserProfile/>
-      }
-
+        path: "/CurrentUserProfile",
+        element: <h1>Current User Profile</h1>,
+        children: [
+          {
+            path: "/CurrentUserProfile/UserProfile",
+            element: <UserProfile />,
+          },
+          {
+            path : "/CurrentUserProfile/ProfileAdminTaskManager",
+            element : <ProfileAdminTaskManager/>
+          }
+        ],
+      },
     ],
   },
 ]);

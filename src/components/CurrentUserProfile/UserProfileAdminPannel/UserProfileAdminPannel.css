@@ -18,3 +18,18 @@
     filter: grayscale(0.3);
     border: 3px solid #101010;
 }
+
+.link-item{
+    width: 100%;
+    font-size: 15px;
+    font-weight: 700;
+    font-style: italic;
+    border-bottom: 1px solid #dadada;
+    padding: 10px 5px;
+}
+
+.link-item:hover{
+    background-color: #1F2937;
+    color: #fff;
+    border-left: 3px solid rgb(15, 132, 209);
+}
