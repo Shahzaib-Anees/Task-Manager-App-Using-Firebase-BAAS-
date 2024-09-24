@@ -2,12 +2,10 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "./Layout";
-import Hero from "./components/Page-Hero/Hero";
-import SignIn from "./components/SignInAuth/SignIn";
-import SignUp from "./components/SignUpAuth/SignUp";
-import UserProfile from "./components/CurrentUserProfile/UserProfile/UserProfile";
-import ProfileAdminTaskManager from "./components/CurrentUserProfile/ProfileAdminTaskManager/ProfileAdminTaskManager";
-
+import Hero from "./screens/Page-Hero/Hero";
+import SignIn from "./screens/SignInAuth/SignIn";
+import SignUp from "./screens/SignUpAuth/SignUp";
+import Profile from "./screens/Profile/Profile"
 const router = createBrowserRouter([
   {
     path: "/",
@@ -26,19 +24,9 @@ const router = createBrowserRouter([
         element: <SignUp />,
       },
       {
-        path: "/CurrentUserProfile",
-        element: <h1>Current User Profile</h1>,
-        children: [
-          {
-            path: "/CurrentUserProfile/UserProfile",
-            element: <UserProfile />,
-          },
-          {
-            path : "/CurrentUserProfile/ProfileAdminTaskManager",
-            element : <ProfileAdminTaskManager/>
-          }
-        ],
-      },
+        path : "/Profile/:id",
+        element : <Profile/>
+      }
     ],
   },
 ]);
