@@ -10,7 +10,7 @@ import { auth } from "../../configs/firebase/firebaseConfig";
 import { Link, useNavigate } from "react-router-dom";
 import Loader from "../../components/Loader/Loader";
 import ErrorHandler from "../../components/ErrorHandler/ErrorHandler";
-import "./signUp.css";
+import "./signup.css";
 
 function SignUp() {
   const navigate = useNavigate();
