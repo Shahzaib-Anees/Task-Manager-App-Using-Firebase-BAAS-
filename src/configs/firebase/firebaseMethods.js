@@ -5,7 +5,7 @@ import {
 } from "firebase/auth";
 
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
-import { doc, setDoc , getDoc } from "firebase/firestore";
+import { doc, setDoc, getDoc, updateDoc } from "firebase/firestore";
 // Sign Up User
 const signUpUser = (auth, email, password) => {
   return new Promise((resolve, reject) => {
@@ -97,7 +97,17 @@ const getSingleData = (collectionName, id) => {
       });
   });
 };
-
+const updateDocument = (collectionName, id, obj) => {
+  return new Promise((resolve, reject) => {
+    const userRef = doc(db, collectionName, id);
+    updateDoc(userRef, obj);
+    if (obj) {
+      resolve("Data Updated Successfully with " + id);
+    } else {
+      reject("Data Not Updated");
+    }
+  });
+};
 export {
   signUpUser,
   signInUser,
@@ -106,4 +116,5 @@ export {
   addDatainDb,
   signOutUser,
   getSingleData,
+  updateDocument,
 };

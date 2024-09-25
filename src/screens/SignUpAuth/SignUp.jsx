@@ -57,6 +57,11 @@ function SignUp() {
         email: userEmailValue,
         password: userPasswordValue,
         image: profileImage,
+        tasks: {
+          allTask : [],
+          completedTask : [],
+          pendingTask: [],
+        },
       });
 
       console.log(addtoDatabase);

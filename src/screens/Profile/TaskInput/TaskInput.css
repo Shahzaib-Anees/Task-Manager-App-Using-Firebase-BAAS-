@@ -1,0 +1,23 @@
+.input-field{
+    width: 350px;
+    border: none;
+    outline: none;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    padding: 5px 10px;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 5px;
+    border: 1px solid #c6c5c4;
+}
+.input-field:hover{
+    border: 1px solid #1F2937;
+}
+
+.input-field:focus{
+    border: 1px solid #1F2937;
+}
+
+.task-adder:hover{
+   scale : 1.1;
+   transition:scale 0.5s linear;
+}
