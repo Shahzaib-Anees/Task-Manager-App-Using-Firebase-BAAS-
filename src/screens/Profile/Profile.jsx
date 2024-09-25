@@ -29,7 +29,7 @@ function Profile() {
   return (
     <>
       <div className="flex flex-col items-center justify-center w-full h-full">
-        <Dashboard name={data?.name} />
+        <Dashboard name={data?.name} userId={id} />
       </div>
     </>
   );

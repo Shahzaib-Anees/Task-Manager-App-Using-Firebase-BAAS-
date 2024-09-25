@@ -11,8 +11,8 @@ import {
   FaPowerOff,
 } from "react-icons/fa6";
 
-function Dashboard({ name }) {
-  const currentUserId = `${auth.currentUser.uid}`;
+function Dashboard({ name , id }) {
+  const currentUserId = `${id}`;
   const addClassToLink = (evt) => {
     evt.target.classList.add("active");
   };
