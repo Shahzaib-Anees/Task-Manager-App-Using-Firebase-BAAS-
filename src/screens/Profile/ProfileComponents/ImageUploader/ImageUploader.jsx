@@ -10,7 +10,7 @@ import {
 import "./ImageUploader.css";
 function ImageUploader() {
   const [ifImageUploaderCall, setIfImageUploaderCall] = useState(false);
-  const userProfileImage = localStorage.getItem("userImage") 
+  const userProfileImage = localStorage.getItem("userImage"); 
   const newProfileImage = useRef();
   const getNewProfileImage = async (evt) => {
     evt.preventDefault();

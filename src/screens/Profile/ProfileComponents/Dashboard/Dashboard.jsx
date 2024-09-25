@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./Dashboard.css";
 import ImageUploader from "../ImageUploader/ImageUploader";
 import TaskManager from "../TaskManager/TaskManager";
 import { auth } from "../../../../configs/firebase/firebaseConfig";
+import { getSingleData } from "../../../../configs/firebase/firebaseMethods";
 import {
   FaRectangleList,
   FaCheckDouble,
@@ -11,8 +12,7 @@ import {
   FaPowerOff,
 } from "react-icons/fa6";
 
-function Dashboard({ name , id }) {
-  const currentUserId = `${id}`;
+function Dashboard({ id, name }) {
   const addClassToLink = (evt) => {
     evt.target.classList.add("active");
   };
@@ -27,11 +27,12 @@ function Dashboard({ name , id }) {
         >
           <ImageUploader />
           <h1 className="text-[18px] font-bold">{name}</h1>
+          {/* Dashboard Navigation List  */}
           <ul className="dashboard-nav-list flex flex-col">
             <li>
               <Link
                 onMouseEnter={addClassToLink}
-                to={`/Profile/${currentUserId}/TaskManager/`}
+                to={`TaskManager/`}
                 className="flex items-center justify-center gap-2"
               >
                 <span>
@@ -72,7 +73,7 @@ function Dashboard({ name , id }) {
             border: "1px solid #000",
           }}
         >
-          <TaskManager />
+          <TaskManager userId={id} />
         </div>
       </article>
     </>

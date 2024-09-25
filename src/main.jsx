@@ -32,19 +32,19 @@ const router = createBrowserRouter([
         element: <Profile />,
         children: [
           {
-            path: "/Profile/:id/TaskManager",
+            path: "TaskManager",
             element: <TaskLayout />,
             children: [
               {
-                path: "/Profile/:id/TaskManager/",
+                path: "TaskManager/",
                 element: <AllTask />,
               },
               {
-                path: "/Profile/:id/TaskManager/CompletedTask",
+                path: "TaskManager/CompletedTask",
                 element: <CompletedTask />,
               },
               {
-                path: "/Profile/:id/TaskManager/PendingTask",
+                path: "TaskManager/PendingTask",
                 element: <PendingTask />,
               },
             ],

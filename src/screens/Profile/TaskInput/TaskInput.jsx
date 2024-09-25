@@ -2,13 +2,15 @@ import React, { useRef, useState, useEffect } from "react";
 import "./TaskInput.css";
 import { auth } from "../../../configs/firebase/firebaseConfig";
 import { updateDocument } from "../../../configs/firebase/firebaseMethods";
-function TaskInput() {
+import { useParams } from "react-router-dom";
+function TaskInput({ userId }) {
+  const { id } = useParams();
   const taskRef = useRef();
   const [userData, setUserData] = useState(null);
   const [task, setTask] = useState([]);
   useEffect(() => {
     const data = (async () => {
-      const response = await updateDocument("users", auth.currentUser.uid, {
+      const response = await updateDocument("users", id, {
         "tasks.allTask": [...task],
         "tasks.pendingTask": [...task],
       });

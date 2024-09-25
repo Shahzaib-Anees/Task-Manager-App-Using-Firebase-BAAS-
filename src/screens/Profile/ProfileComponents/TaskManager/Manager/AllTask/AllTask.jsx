@@ -4,14 +4,17 @@ import { getSingleData } from "../../../../../../configs/firebase/firebaseMethod
 
 function AllTask() {
   const { id } = useParams();
-  useEffect(() => {
-    const getData = async () => {
-      const data = await getSingleData("users", id);
-      console.log(data);
-    };
+  console.log(id);
+  
 
-    getData();
-  }, [id]);
+  // useEffect(() => {
+  //   const getData = async () => {
+  //     const data = await getSingleData("users", id);
+  //     console.log(data);
+  //   };
+
+  //   getData();
+  // }, [id]);
   return (
     <>
       <div>AllTask</div>

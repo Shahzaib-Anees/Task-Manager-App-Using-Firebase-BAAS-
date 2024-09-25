@@ -8,28 +8,16 @@ function Profile() {
   const navigate = useNavigate();
   const [data, setData] = useState(null);
   useEffect(() => {
-    const getUserData = async () => {
-      try {
-        const data = await getSingleData("users", id);
-        if (data) {
-          console.log(data);
-          setData(data);
-          localStorage.setItem("userImage", data.image);
-        } else {
-          navigate("/SignInAuth");
-        }
-      } catch (error) {
-        console.log(error);
-      } finally {
-        // console.log(dataImage);
-      }
-    };
-    getUserData();
+    const data = (async () => {
+      const response = await getSingleData("users", id);
+      setData(response);
+    })();
   }, []);
+
   return (
     <>
       <div className="flex flex-col items-center justify-center w-full h-full">
-        <Dashboard name={data?.name} userId={id} />
+        <Dashboard userId={id} name={data?.name} />
       </div>
     </>
   );
